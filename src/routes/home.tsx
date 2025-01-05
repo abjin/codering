@@ -22,12 +22,20 @@ const CardGrid = styled.div`
 `;
 
 const GroupCard = styled.div`
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 16px;
   padding: 24px;
-  background: rgba(255, 255, 255, 0.8);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 240, 245, 0.9) 20%,
+    rgba(240, 255, 245, 0.9) 40%,
+    rgba(240, 248, 255, 0.9) 60%,
+    rgba(248, 240, 255, 0.9) 80%,
+    rgba(255, 255, 255, 0.95) 100%
+  );
   backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 32px rgba(147, 112, 219, 0.05);
   cursor: pointer;
   transition: all 0.3s ease;
 
@@ -54,9 +62,17 @@ const GroupCard = styled.div`
   }
 
   &:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(147, 112, 219, 0.1);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(255, 245, 250, 0.95) 20%,
+      rgba(245, 255, 250, 0.95) 40%,
+      rgba(245, 250, 255, 0.95) 60%,
+      rgba(250, 245, 255, 0.95) 80%,
+      rgba(255, 255, 255, 0.98) 100%
+    );
   }
 `;
 
