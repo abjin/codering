@@ -160,35 +160,32 @@ const GroupCard = styled.div`
   padding: 24px;
   background: linear-gradient(
     135deg,
-    rgba(45, 45, 45, 0.95) 0%,
+    rgba(40, 40, 40, 0.95) 0%,
     rgba(60, 60, 60, 0.85) 50%,
     rgba(40, 40, 40, 0.9) 100%
   );
+  position: relative;
+  overflow: hidden;
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   transition: all 0.3s ease;
 
-  h3 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    color: #f8f9fa;
-  }
-
-  p {
-    color: #adb5bd;
-    line-height: 1.5;
-    margin: 8px 0;
-  }
-
-  .members {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: #00b894;
-    font-weight: 500;
-    margin-bottom: 12px;
+  // 메탈릭 효과를 위한 가상 요소
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.05),
+      transparent
+    );
+    transition: 0.5s;
   }
 
   &:hover {
@@ -200,6 +197,53 @@ const GroupCard = styled.div`
       rgba(65, 65, 65, 0.9) 50%,
       rgba(45, 45, 45, 0.95) 100%
     );
+
+    &::before {
+      left: 100%;
+    }
+  }
+
+  // 빛 반사 효과
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.03) 20%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    pointer-events: none;
+  }
+
+  // 기존 스타일 유지
+  h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #f8f9fa;
+    position: relative;
+  }
+
+  p {
+    color: #adb5bd;
+    line-height: 1.5;
+    margin: 8px 0;
+    position: relative;
+  }
+
+  .members {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #00b894;
+    font-weight: 500;
+    margin-bottom: 12px;
+    position: relative;
   }
 `;
 
