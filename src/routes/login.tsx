@@ -9,12 +9,62 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  font-size: 20px;
+  gap: 20px;
+  padding: 40px 20px;
+  max-width: 400px;
+  margin: 0 auto;
 `;
 
-const Button = styled.button`
-  width: 50px;
+const Title = styled.h1`
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  position: relative;
+  padding-bottom: 12px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 3px;
+    background-color: #e50914;
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+`;
+
+const LoginButton = styled.button`
+  width: 100%;
+  padding: 16px;
+  background-color: #fee500;
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  &:hover {
+    background-color: #e6d000;
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
 `;
 
 export default function Login() {
@@ -23,19 +73,25 @@ export default function Login() {
   const isAuthenticated = useIsAuthenticated();
 
   const onClickLoginButton = async () => {
-    const getUserResponse = await api.postUser();
-    signIn({
-      auth: { token: getUserResponse.token },
-      userState: getUserResponse.user,
-    });
-    navigate('/');
+    try {
+      const getUserResponse = await api.postUser();
+      signIn({
+        auth: { token: getUserResponse.token },
+        userState: getUserResponse.user,
+      });
+      navigate('/');
+    } catch (error) {
+      console.error('로그인 실패:', error);
+      alert('로그인에 실패했습니다. 다시 시도해주세요.');
+    }
   };
 
   if (isAuthenticated) return <Navigate to="/" />;
   return (
     <Wrapper>
-      Here is Login page.
-      <Button onClick={onClickLoginButton}>로그인</Button>
+      <Title>Gathering</Title>
+      <p>함께하는 즐거움을 찾아보세요!</p>
+      <LoginButton onClick={onClickLoginButton}>카카오로 시작하기</LoginButton>
     </Wrapper>
   );
 }
