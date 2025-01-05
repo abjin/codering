@@ -224,7 +224,7 @@ export default function Feeds() {
 
   return (
     <Wrapper>
-      <Title>모임 피드 ✨</Title>
+      <Title>피드 ✨</Title>
       <FeedGrid>
         <CreateFeedCard isExpanded={isExpanded}>
           <div className="input-wrapper">
