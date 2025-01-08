@@ -8,26 +8,27 @@ import Projects from './projects';
 import Feeds from './feeds';
 import Studies from './studies';
 import Conferences from './conferences';
+import { ROUTES } from '../libs/date';
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: ROUTES.HOME,
     element: <ProtectedRoute children={<Layout />} />,
     children: [
-      { path: '/', element: <Home /> },
-      { path: '/projects', element: <Projects /> },
-      { path: '/feeds', element: <Feeds /> },
-      { path: '/studies', element: <Studies /> },
-      { path: '/conferences', element: <Conferences /> },
+      { path: ROUTES.HOME, element: <Home /> },
+      { path: ROUTES.PROJECTS, element: <Projects /> },
+      { path: ROUTES.FEEDS, element: <Feeds /> },
+      { path: ROUTES.STUDIES, element: <Studies /> },
+      { path: ROUTES.CONFERENCES, element: <Conferences /> },
       { path: '/*', element: <Home /> },
     ],
   },
   {
-    path: '/login',
+    path: ROUTES.LOGIN,
     element: <Login />,
   },
   {
-    path: '/logout',
+    path: ROUTES.LOGOUT,
     element: <Logout />,
   },
 ]);
