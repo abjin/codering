@@ -308,3 +308,31 @@ export const postUserApiResponse: PostUserApiResponse = {
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFiamluMTEiLCJpYXQiOjE3MzU5ODM2NjksImV4cCI6MTc2NzUxOTY2OX0.F37JCDIK_m6hlokkqA53HtCSHNaC0MgpCugstswvKbM',
   user: { id: 'test', nickname: 'test' },
 };
+
+export const recommendedProjects = [
+  {
+    id: 1,
+    title: 'React Native 앱 개발',
+    category: '모바일',
+    description: '함께 배우면서 성장하는 React Native 프로젝트입니다.',
+    level: '중급',
+    tags: ['React Native', 'TypeScript', 'Mobile'],
+    currentMembers: 3,
+    maxMembers: 5,
+  },
+  // ... 더 많은 프로젝트
+];
+
+export const recommendedStudies = [
+  {
+    id: 1,
+    title: '알고리즘 스터디',
+    category: '알고리즘',
+    description: '매주 알고리즘 문제를 풀고 토론하는 스터디입니다.',
+    level: '초급',
+    tags: ['Algorithm', 'Python', 'Java'],
+    currentMembers: 2,
+    maxMembers: 4,
+  },
+  // ... 더 많은 스터디
+];

@@ -1,7 +1,38 @@
 import styled from 'styled-components';
 import { Feed } from '../../types/common';
 
-const CardWrapper = styled.div`
+export const HolographicCard = styled.div`
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  border-radius: 16px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1rem;
+
+  /* 홀로그램 효과 */
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+    z-index: 0;
+  }
+`;
+
+const CardWrapper = styled(HolographicCard)`
   position: relative;
   width: 100%;
   max-width: 100%;

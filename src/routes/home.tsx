@@ -4,6 +4,7 @@ import { Grid } from '../components/common/layout';
 import { Tag, TagsWrapper, LevelBadge } from '../components/common/tags';
 import { JoinButton } from '../components/common/buttons';
 import { Title } from '../components/common/title';
+import { recommendedProjects, recommendedStudies } from '../data/mockData';
 
 const Wrapper = styled.div`
   padding: 20px;
@@ -20,38 +21,7 @@ const Section = styled.section`
   }
 `;
 
-const ProjectCard = styled(BaseCard)`
-  // 추가적인 스타일링이 필요한 경우
-`;
-
-// 임시 데이터
-const recommendedProjects = [
-  {
-    id: 1,
-    title: 'React Native 앱 개발',
-    category: '모바일',
-    description: '함께 배우면서 성장하는 React Native 프로젝트입니다.',
-    level: '중급',
-    tags: ['React Native', 'TypeScript', 'Mobile'],
-    currentMembers: 3,
-    maxMembers: 5,
-  },
-  // ... 더 많은 프로젝트
-];
-
-const recommendedStudies = [
-  {
-    id: 1,
-    title: '알고리즘 스터디',
-    category: '알고리즘',
-    description: '매주 알고리즘 문제를 풀고 토론하는 스터디입니다.',
-    level: '초급',
-    tags: ['Algorithm', 'Python', 'Java'],
-    currentMembers: 2,
-    maxMembers: 4,
-  },
-  // ... 더 많은 스터디
-];
+const ProjectCard = styled(BaseCard)``;
 
 export default function Home() {
   return (

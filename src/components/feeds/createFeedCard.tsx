@@ -1,7 +1,23 @@
 import styled from 'styled-components';
 import { ActionButton } from '../common/buttons';
+import { HolographicCard } from './cards';
 
-const CreateFeedWrapper = styled.div`
+const CreateFeedWrapper = styled(HolographicCard)`
+  input,
+  textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
   position: relative;
   width: 100%;
   background: rgba(255, 255, 255, 0.05);

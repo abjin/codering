@@ -29,54 +29,6 @@ const FeedList = styled.div`
   gap: 1rem;
 `;
 
-const HolographicCard = styled.div`
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.05)
-  );
-  border-radius: 16px;
-  padding: 1.5rem;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 1rem;
-
-  /* 홀로그램 효과 */
-  position: relative;
-  overflow: hidden;
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      45deg,
-      rgba(255, 255, 255, 0.1) 0%,
-      rgba(255, 255, 255, 0.05) 100%
-    );
-    z-index: 0;
-  }
-`;
-
-const CreateFeedWrapper = styled(HolographicCard)`
-  input,
-  textarea {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    border: none;
-    border-radius: 8px;
-    color: #fff;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-
-    &::placeholder {
-      color: rgba(255, 255, 255, 0.5);
-    }
-  }
-`;
-
 export default function Feeds() {
   const [content, setContent] = useState('');
   const [isExpanded, setIsExpanded] = useState(false);
@@ -91,20 +43,16 @@ export default function Feeds() {
     <PageWrapper>
       <PageTitle>피드 ✨</PageTitle>
       <FeedList>
-        <CreateFeedWrapper>
-          <CreateFeedCard
-            content={content}
-            isExpanded={isExpanded}
-            onContentChange={setContent}
-            onExpandChange={setIsExpanded}
-            onSubmit={handleSubmit}
-          />
-        </CreateFeedWrapper>
+        <CreateFeedCard
+          content={content}
+          isExpanded={isExpanded}
+          onContentChange={setContent}
+          onExpandChange={setIsExpanded}
+          onSubmit={handleSubmit}
+        />
 
         {mockFeeds.map((feed) => (
-          <HolographicCard key={feed.id}>
-            <FeedCard feed={feed} />
-          </HolographicCard>
+          <FeedCard feed={feed} />
         ))}
       </FeedList>
     </PageWrapper>
