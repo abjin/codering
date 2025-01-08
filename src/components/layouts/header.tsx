@@ -25,7 +25,7 @@ const Logo = styled.h1`
 export default function Header() {
   return (
     <HeaderWrapper>
-      <Logo>Gathering</Logo>
+      <Logo>deploy test</Logo>
     </HeaderWrapper>
   );
 }
