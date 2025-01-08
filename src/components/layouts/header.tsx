@@ -11,6 +11,8 @@ const HeaderWrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: black;
+  opacity: 0.9;
 
   @media (min-width: 768px) {
     left: 240px; // NavigationBar의 width만큼 left 값 설정
