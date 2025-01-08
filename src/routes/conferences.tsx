@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Title } from '../styles/commonStyles';
+import { Title } from '../components/common/title';
 
 const Wrapper = styled.div`
   padding: 20px;
@@ -88,7 +88,7 @@ const FestivalCard = styled.div`
   }
 `;
 
-// 데이터 수�
+// 데이터 수출
 const aiEvents = [
   {
     id: 1,

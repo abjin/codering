@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { Title } from '../styles/commonStyles';
+import { Title } from '../components/common/title';
 import { BaseCard } from '../components/common/card';
 import {
   Grid,

@@ -9,10 +9,3 @@ export const Title = styled.h2`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
-
-export const CardGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 25px;
-  padding: 10px;
-`;

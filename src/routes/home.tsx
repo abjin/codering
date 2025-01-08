@@ -3,6 +3,7 @@ import { BaseCard } from '../components/common/card';
 import { Grid } from '../components/common/layout';
 import { Tag, TagsWrapper, LevelBadge } from '../components/common/tags';
 import { JoinButton } from '../components/common/buttons';
+import { Title } from '../components/common/title';
 
 const Wrapper = styled.div`
   padding: 20px;
@@ -56,7 +57,7 @@ export default function Home() {
   return (
     <Wrapper>
       <Section>
-        <h2>추천 프로젝트</h2>
+        <Title>추천 프로젝트</Title>
         <Grid>
           {recommendedProjects.map((project) => (
             <ProjectCard key={project.id}>
@@ -82,7 +83,7 @@ export default function Home() {
       </Section>
 
       <Section>
-        <h2>추천 스터디</h2>
+        <Title>추천 스터디</Title>
         <Grid>
           {recommendedStudies.map((study) => (
             <ProjectCard key={study.id}>
