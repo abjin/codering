@@ -2,12 +2,13 @@ import styled from 'styled-components';
 import { Title } from '../styles/commonStyles';
 
 const Wrapper = styled.div`
+  width: 100%;
   padding: 20px;
 `;
 
 const EventGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 25px;
   padding: 10px;
 `;
@@ -60,34 +61,27 @@ const studies = [
 
 // 추가 스타일 컴포넌트
 const SearchSection = styled.div`
-  margin-bottom: 30px;
-  position: relative;
+  background: rgba(30, 30, 30, 0.6);
+  padding: 24px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 
   input {
     width: 100%;
     padding: 16px 24px;
-    border-radius: 16px;
-    border: 2px solid transparent;
-    background: rgba(40, 40, 40, 0.9);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(20, 20, 20, 0.8);
     color: #f8f9fa;
     font-size: 16px;
     margin-bottom: 15px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-
-    &::placeholder {
-      color: #868e96;
-    }
 
     &:focus {
       outline: none;
-      border-color: #4a90e2;
-      background: rgba(45, 45, 45, 0.95);
-      box-shadow: 0 8px 25px rgba(74, 144, 226, 0.15);
-    }
-
-    &:hover {
-      background: rgba(45, 45, 45, 0.95);
+      border-color: #6c5ce7;
+      box-shadow: 0 0 0 2px rgba(108, 92, 231, 0.2);
     }
   }
 `;
@@ -98,98 +92,73 @@ const FilterWrapper = styled.div`
   flex-wrap: wrap;
 
   select {
-    padding: 10px 20px;
+    padding: 12px 20px;
     border-radius: 12px;
-    border: 2px solid transparent;
-    background: rgba(40, 40, 40, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(20, 20, 20, 0.8);
     color: #f8f9fa;
     cursor: pointer;
-    transition: all 0.3s ease;
     font-size: 14px;
 
-    &:hover,
     &:focus {
-      border-color: #4a90e2;
-      background: rgba(45, 45, 45, 0.95);
       outline: none;
-    }
-
-    option {
-      background: #2d2d2d;
-      color: #f8f9fa;
+      border-color: #6c5ce7;
     }
   }
 `;
 
 const CreateButton = styled.button`
   width: 100%;
-  padding: 12px 24px;
-  background: linear-gradient(90deg, #4a90e2, #67b8ff);
+  padding: 16px;
+  background: #6c5ce7;
   border: none;
-  border-radius: 12px;
+  border-radius: 16px;
   color: white;
   font-weight: 600;
+  font-size: 16px;
   cursor: pointer;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
 
-  &:hover {
-    opacity: 0.9;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0)
+    );
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+
+  &:active {
+    transform: scale(0.98);
   }
 `;
 
 const StudyCard = styled.div`
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(30, 30, 30, 0.6);
   border-radius: 24px;
   padding: 32px;
-  background: linear-gradient(
-    165deg,
-    rgba(40, 40, 40, 0.95) 0%,
-    rgba(50, 50, 50, 0.85) 50%,
-    rgba(45, 45, 45, 0.9) 100%
-  );
-  position: relative;
-  overflow: hidden;
   backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
-
-  // 메탈릭 효과 개선
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -150%;
-    width: 150%;
-    height: 100%;
-    background: linear-gradient(
-      120deg,
-      transparent,
-      rgba(255, 255, 255, 0.08),
-      transparent
-    );
-    transform: skewX(-15deg);
-    transition: 0.75s;
-  }
+  position: relative;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
-    background: linear-gradient(
-      165deg,
-      rgba(55, 55, 55, 1) 0%,
-      rgba(65, 65, 65, 0.9) 50%,
-      rgba(50, 50, 50, 0.95) 100%
-    );
-
-    &::before {
-      left: 100%;
-    }
-
-    .category {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
-    }
+    transform: translateY(-4px);
+    background: rgba(35, 35, 35, 0.8);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   }
 
   .header {
@@ -200,92 +169,109 @@ const StudyCard = styled.div`
     gap: 12px;
   }
 
-  h3 {
-    font-size: 24px;
-    font-weight: 700;
-    margin: 16px 0;
-    color: #f8f9fa;
-    letter-spacing: -0.5px;
-  }
-
-  .info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 16px;
-    margin-bottom: 24px;
-    color: #adb5bd;
-    font-size: 15px;
-
-    .item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-
-      svg {
-        width: 18px;
-        height: 18px;
-        color: #4a90e2;
-      }
-    }
-  }
-
-  .description {
-    color: #adb5bd;
-    line-height: 1.7;
-    margin-bottom: 24px;
-    font-size: 15px;
-  }
-
   .category {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     padding: 8px 16px;
-    background: linear-gradient(135deg, #4a90e2, #67b8ff);
+    background: linear-gradient(135deg, #6c5ce7, #a367fc);
     color: white;
     border-radius: 20px;
     font-size: 13px;
     font-weight: 600;
     transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+    }
+  }
+
+  h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #f8f9fa;
+    margin: 20px 0;
+    letter-spacing: -0.5px;
+  }
+
+  .info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+    margin-bottom: 28px;
+
+    .item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      background: rgba(108, 92, 231, 0.1);
+      border-radius: 16px;
+      color: #6c5ce7;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: rgba(108, 92, 231, 0.15);
+        transform: translateY(-2px);
+      }
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+
+  .description {
+    color: #a8b2c1;
+    line-height: 1.7;
+    font-size: 15px;
+    margin-bottom: 28px;
+    padding: 0 4px;
   }
 `;
 
 const TagsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: 20px 0;
+  gap: 12px;
+  margin: 24px 0;
 `;
 
 const Tag = styled.span`
-  padding: 6px 12px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
+  padding: 8px 16px;
+  background: rgba(108, 92, 231, 0.1);
+  border-radius: 16px;
   font-size: 13px;
-  color: #adb5bd;
-  transition: all 0.3s ease;
+  font-weight: 500;
+  color: #6c5ce7;
+  transition: all 0.2s ease;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.12);
-    transform: translateY(-1px);
+    background: rgba(108, 92, 231, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.1);
   }
 `;
 
 const LevelBadge = styled.span<{ level: string }>`
-  padding: 6px 14px;
-  border-radius: 12px;
+  padding: 8px 16px;
+  border-radius: 16px;
   font-size: 13px;
   font-weight: 600;
-  transition: all 0.3s ease;
-
+  transition: all 0.2s ease;
   background: ${({ level }) => {
     switch (level) {
       case '초급':
-        return 'rgba(0, 184, 148, 0.15)';
+        return 'rgba(0, 184, 148, 0.1)';
       case '중급':
-        return 'rgba(74, 144, 226, 0.15)';
+        return 'rgba(108, 92, 231, 0.1)';
       case '고급':
-        return 'rgba(255, 107, 107, 0.15)';
+        return 'rgba(225, 112, 85, 0.1)';
       default:
-        return 'rgba(0, 184, 148, 0.15)';
+        return 'rgba(0, 184, 148, 0.1)';
     }
   }};
   color: ${({ level }) => {
@@ -293,40 +279,44 @@ const LevelBadge = styled.span<{ level: string }>`
       case '초급':
         return '#00b894';
       case '중급':
-        return '#4a90e2';
+        return '#6c5ce7';
       case '고급':
-        return '#ff6b6b';
+        return '#e17055';
       default:
         return '#00b894';
     }
   }};
 
   &:hover {
-    transform: translateY(-1px);
-    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.1);
   }
 `;
 
 const JoinButton = styled.button<{ full: boolean }>`
   width: 100%;
-  padding: 14px;
-  border-radius: 12px;
+  padding: 16px;
+  border-radius: 16px;
   border: none;
-  margin-top: 20px;
+  background: ${({ full }) =>
+    full
+      ? 'rgba(108, 92, 231, 0.3)'
+      : 'linear-gradient(135deg, #6c5ce7, #a367fc)'};
+  color: white;
   font-weight: 600;
   font-size: 15px;
   cursor: ${({ full }) => (full ? 'not-allowed' : 'pointer')};
-  background: ${({ full }) =>
-    full ? '#636e72' : 'linear-gradient(135deg, #4a90e2, #67b8ff)'};
-  color: white;
   opacity: ${({ full }) => (full ? '0.7' : '1')};
   transition: all 0.3s ease;
 
   &:hover {
-    opacity: ${({ full }) => (full ? '0.7' : '0.9')};
     transform: ${({ full }) => (full ? 'none' : 'translateY(-2px)')};
     box-shadow: ${({ full }) =>
-      full ? 'none' : '0 5px 15px rgba(74, 144, 226, 0.3)'};
+      full ? 'none' : '0 8px 20px rgba(108, 92, 231, 0.2)'};
+  }
+
+  &:active {
+    transform: scale(0.98);
   }
 `;
 
