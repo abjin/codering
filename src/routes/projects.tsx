@@ -9,6 +9,7 @@ import {
 } from '../components/common/layout';
 import { CreateButton, JoinButton } from '../components/common/buttons';
 import { TagsWrapper, Tag, LevelBadge } from '../components/common/tags';
+import { ProjectDetailModal } from '../components/modals/projectDetailModal';
 
 const Wrapper = styled.div`
   padding: 20px;
@@ -61,6 +62,9 @@ const projects = [
 
 export default function Projects() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedProject, setSelectedProject] = useState<
+    (typeof projects)[0] | null
+  >(null);
 
   return (
     <Wrapper>
@@ -98,7 +102,11 @@ export default function Projects() {
 
       <Grid>
         {projects.map((project) => (
-          <ProjectCard key={project.id}>
+          <ProjectCard
+            key={project.id}
+            onClick={() => setSelectedProject(project)}
+            style={{ cursor: 'pointer' }}
+          >
             <div className="header">
               <span className="category">{project.category}</span>
               <LevelBadge level={project.level}>{project.level}</LevelBadge>
@@ -138,6 +146,13 @@ export default function Projects() {
           </ProjectCard>
         ))}
       </Grid>
+
+      {selectedProject && (
+        <ProjectDetailModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </Wrapper>
   );
 }

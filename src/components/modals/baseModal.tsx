@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
-interface Props {
+interface BaseModalProps {
   onClose: () => void;
+  children: React.ReactNode;
+  title?: string;
 }
 
 const ModalOverlay = styled.div`
@@ -25,12 +27,12 @@ const ModalContent = styled.div`
   max-width: 500px;
 `;
 
-export function CreateGroupModal({ onClose }: Props) {
+export function BaseModal({ onClose, children, title }: BaseModalProps) {
   return (
     <ModalOverlay onClick={onClose}>
       <ModalContent onClick={(e) => e.stopPropagation()}>
-        <h2>새로운 소모임 만들기</h2>
-        {/* 모달 내용 추가 예정 */}
+        {title && <h2>{title}</h2>}
+        {children}
       </ModalContent>
     </ModalOverlay>
   );
