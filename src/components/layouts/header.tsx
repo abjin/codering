@@ -6,11 +6,15 @@ const HeaderWrapper = styled.header`
   left: 0;
   right: 0;
   height: 60px;
-  background: black;
+  z-index: 100;
+  padding: 0 20px;
   display: flex;
   align-items: center;
-  padding: 0 20px;
-  z-index: 1000;
+  justify-content: space-between;
+
+  @media (min-width: 768px) {
+    left: 240px; // NavigationBar의 width만큼 left 값 설정
+  }
 `;
 
 const Logo = styled.h1`

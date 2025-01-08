@@ -3,28 +3,99 @@ import { Link, useLocation } from 'react-router-dom';
 
 const Wrapper = styled.nav`
   position: fixed;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+
+  // 모바일 디자인 (기본)
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   height: 70px;
-  background: #1a1a1a;
+  justify-content: space-around;
+
+  // PC 디자인
+  @media (min-width: 768px) {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: auto;
+    width: 240px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 24px;
+    gap: 8px;
+  }
 `;
 
 const NavItem = styled(Link)<{ $isActive: boolean }>`
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
   text-decoration: none;
   color: ${(props) => (props.$isActive ? '#FF6B6B' : '#9e9e9e')};
   font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+
+  // 모바일 디자인
+  flex-direction: column;
   gap: 4px;
   width: 20%;
   justify-content: center;
   padding: 8px 0;
+
+  // 활성 상태 표시 (모바일)
+  ${(props) =>
+    props.$isActive &&
+    `
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #FF6B6B;
+    }
+  `}
+
+  // PC 디자인
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 12px;
+    width: 100%;
+    font-size: 14px;
+    padding: 12px 24px;
+    height: auto;
+
+    // 활성 상태 표시 (PC)
+    ${(props) =>
+      props.$isActive &&
+      `
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        background: #FF6B6B;
+        border-radius: 0 2px 2px 0;
+      }
+    `}
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
 
   svg {
     width: 24px;
