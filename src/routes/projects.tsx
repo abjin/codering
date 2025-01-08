@@ -77,7 +77,7 @@ const allGroups = [
   // ... 더 많은 그룹들
 ];
 
-export default function Groups() {
+export default function Projects() {
   const [searchTerm, setSearchTerm] = useState('');
   const [showCreateModal, setShowCreateModal] = useState(false);
 

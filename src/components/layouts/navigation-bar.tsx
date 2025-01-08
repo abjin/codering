@@ -22,6 +22,9 @@ const NavItem = styled(Link)<{ $isActive: boolean }>`
   color: ${(props) => (props.$isActive ? '#FF6B6B' : '#9e9e9e')};
   font-size: 12px;
   gap: 4px;
+  width: 20%;
+  justify-content: center;
+  padding: 8px 0;
 
   svg {
     width: 24px;
@@ -50,11 +53,14 @@ export default function NavigationBar() {
         홈
       </NavItem>
 
-      <NavItem to="/groups" $isActive={location.pathname.startsWith('/groups')}>
+      <NavItem
+        to="/projects"
+        $isActive={location.pathname.startsWith('/groups')}
+      >
         <svg viewBox="0 0 24 24">
           <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
         </svg>
-        소모임
+        프로젝트
       </NavItem>
 
       <NavItem to="/feeds" $isActive={location.pathname.startsWith('/board')}>
@@ -65,13 +71,13 @@ export default function NavigationBar() {
       </NavItem>
 
       <NavItem
-        to="/classes"
+        to="/studies"
         $isActive={location.pathname.startsWith('/classes')}
       >
         <svg viewBox="0 0 24 24">
           <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z" />
         </svg>
-        클래스
+        스터디
       </NavItem>
 
       <NavItem to="/events" $isActive={location.pathname.startsWith('/events')}>

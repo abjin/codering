@@ -330,7 +330,7 @@ const JoinButton = styled.button<{ full: boolean }>`
   }
 `;
 
-export default function Classes() {
+export default function Studies() {
   return (
     <Wrapper>
       <Title>개발 스터디 🤓</Title>
