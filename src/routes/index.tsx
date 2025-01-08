@@ -7,7 +7,7 @@ import Logout from './logout';
 import Projects from './projects';
 import Feeds from './feeds';
 import Studies from './studies';
-import Events from './events';
+import Conferences from './conferences';
 
 export const router = createBrowserRouter([
   {
@@ -18,7 +18,8 @@ export const router = createBrowserRouter([
       { path: '/projects', element: <Projects /> },
       { path: '/feeds', element: <Feeds /> },
       { path: '/studies', element: <Studies /> },
-      { path: '/events', element: <Events /> },
+      { path: '/conferences', element: <Conferences /> },
+      { path: '/*', element: <Home /> },
     ],
   },
   {

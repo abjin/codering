@@ -125,7 +125,7 @@ const aiEvents = [
   },
 ];
 
-export default function Events() {
+export default function Conferences() {
   return (
     <Wrapper>
       <Title>AI 이벤트 & 컨퍼런스 🎯</Title>
