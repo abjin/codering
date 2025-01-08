@@ -89,7 +89,7 @@ export default function Login() {
   if (isAuthenticated) return <Navigate to="/" />;
   return (
     <Wrapper>
-      <Title>Gathering</Title>
+      <Title>Codering</Title>
       <p>함께하는 즐거움을 찾아보세요!</p>
       <LoginButton onClick={onClickLoginButton}>카카오로 시작하기</LoginButton>
     </Wrapper>
