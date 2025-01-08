@@ -17,6 +17,10 @@ const ModalOverlay = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 1000;
+
+  @media (min-width: 768px) {
+    left: 240px; // NavigationBar의 width만큼 left 값 설정
+  }
 `;
 
 const ModalContent = styled.div`

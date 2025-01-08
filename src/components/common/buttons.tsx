@@ -65,3 +65,32 @@ export const JoinButton = styled.button<{ full: boolean }>`
     transform: scale(0.98);
   }
 `;
+
+export const ImageUploadButton = styled.button`
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: transparent;
+  color: #adb5bd;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+`;
+
+export const ActionButton = styled.button<{ primary?: boolean }>`
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: ${({ primary }) => (primary ? '#6c5ce7' : 'transparent')};
+  color: ${({ primary }) => (primary ? 'white' : '#adb5bd')};
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: ${({ primary }) =>
+      primary ? '#5f3dc4' : 'rgba(255, 255, 255, 0.1)'};
+  }
+`;

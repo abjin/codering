@@ -5,6 +5,11 @@ export const TagsWrapper = styled.div`
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 24px;
+
+  span {
+    display: inline-flex;
+    align-items: center;
+  }
 `;
 
 export const Tag = styled.span`

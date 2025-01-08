@@ -1,4 +1,4 @@
-import { postUserApiResponse } from '../api-mock-data';
+import { postUserApiResponse } from '../data/mockData';
 import BaseRestApi from './base-rest-api';
 import axios from 'axios';
 
