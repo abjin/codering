@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
-import { ROUTES } from '../../libs/date';
+import { ROUTES } from '../../libs/constants';
 
 const Wrapper = styled.nav`
   position: fixed;

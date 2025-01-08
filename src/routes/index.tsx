@@ -8,7 +8,7 @@ import Projects from './projects';
 import Feeds from './feeds';
 import Studies from './studies';
 import Conferences from './conferences';
-import { ROUTES } from '../libs/date';
+import { ROUTES } from '../libs/constants';
 
 export const router = createBrowserRouter([
   {
