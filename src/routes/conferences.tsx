@@ -128,7 +128,7 @@ const aiEvents = [
 export default function Conferences() {
   return (
     <Wrapper>
-      <Title>AI 이벤트 & 컨퍼런스 🎯</Title>
+      <Title>이벤트 & 컨퍼런스 🎯</Title>
       <EventGrid>
         {aiEvents.map((event) => (
           <FestivalCard key={event.id}>
