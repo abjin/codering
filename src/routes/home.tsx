@@ -80,21 +80,21 @@ const GroupCard = styled.div`
 const recommendedGroups = [
   {
     id: 1,
-    name: '독서 모임',
+    name: '오픈소스 프로젝트',
     members: 15,
-    description: '매주 새로운 책을 읽고 토론해요',
+    description: 'React 기반 디자인 시스템 개발',
   },
   {
     id: 2,
-    name: '등산 동호회',
+    name: '사이드 프로젝트',
     members: 25,
-    description: '주말마다 새로운 산을 등반합니다',
+    description: '개발자 커뮤니티 플랫폼 개발',
   },
   {
     id: 3,
-    name: '코딩 스터디',
+    name: '스터디 그룹',
     members: 10,
-    description: '함께 성장하는 개발자 모임',
+    description: '시스템 디자인 스터디',
   },
 ];
 
@@ -102,27 +102,27 @@ const recommendedGroups = [
 const localEvents = [
   {
     id: 1,
-    title: '강남 플리마켓',
+    title: '프론트엔드 컨퍼런스',
     date: '2024.04.15',
     location: '서울 강남구',
-    description: '로컬 작가들의 수공예품 마켓',
-    category: '마켓',
+    description: '최신 웹 개발 트렌드와 기술',
+    category: '컨퍼런스',
   },
   {
     id: 2,
-    title: '홍대 버스킹 페스티벌',
+    title: '개발자 네트워킹',
     date: '2024.04.20',
     location: '서울 마포구',
-    description: '신진 뮤지션들의 거리공연',
-    category: '문화',
+    description: '현직 개발자들과의 만남',
+    category: '네트워킹',
   },
   {
     id: 3,
-    title: '송리단길 맛집 투어',
+    title: '해커톤',
     date: '2024.04.22',
     location: '서울 송파구',
-    description: '지역 맛집 탐방 행사',
-    category: '푸드',
+    description: '48시간 프로젝트 개발 대회',
+    category: '해커톤',
   },
 ];
 
@@ -159,7 +159,7 @@ const SectionTitle = styled(Title)`
 export default function Home() {
   return (
     <Wrapper>
-      <Title>추천 소모임 ✨</Title>
+      <Title>추천 사이드 프로젝트 ✨</Title>
       <CardGrid>
         {recommendedGroups.map((group) => (
           <GroupCard key={group.id}>
@@ -180,7 +180,7 @@ export default function Home() {
         ))}
       </CardGrid>
 
-      <SectionTitle>추천 지역 이벤트 🎉</SectionTitle>
+      <SectionTitle>추천 이벤트 🎉</SectionTitle>
       <CardGrid>
         {localEvents.map((event) => (
           <EventCard key={event.id}>

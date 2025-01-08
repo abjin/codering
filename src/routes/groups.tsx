@@ -45,16 +45,16 @@ const CreateButton = styled.button`
 const myGroups = [
   {
     id: 1,
-    name: '우리 동네 독서모임',
+    name: 'AI 챗봇 프로젝트',
     members: 8,
-    description: '매주 토요일 오전 북카페에서 만나요',
+    description: 'GPT 기반 챗봇 서비스 개발',
     isAdmin: true,
   },
   {
     id: 2,
-    name: '코딩 스터디',
+    name: '알고리즘 스터디',
     members: 12,
-    description: '주 2회 알고리즘 문제 풀이',
+    description: '코딩 테스트 대비 알고리즘 학습',
     isAdmin: false,
   },
 ];
@@ -62,16 +62,16 @@ const myGroups = [
 const allGroups = [
   {
     id: 3,
-    name: '주말 등산 모임',
+    name: '모바일 앱 개발',
     members: 25,
-    description: '초보자도 환영합니다',
+    description: 'React Native 기반 앱 개발',
     location: '서울',
   },
   {
     id: 4,
-    name: '글쓰기 워크샵',
+    name: '블록체인 프로젝트',
     members: 15,
-    description: '매주 다른 주제로 글쓰기',
+    description: 'NFT 마켓플레이스 개발',
     location: '온라인',
   },
   // ... 더 많은 그룹들
@@ -89,9 +89,9 @@ export default function Groups() {
 
   return (
     <Wrapper>
-      <Title>나의 소모임 👥</Title>
+      <Title>나의 프로젝트 👨‍💻</Title>
       <CreateButton onClick={() => setShowCreateModal(true)}>
-        새로운 소모임 만들기 +
+        새로운 프로젝트 시작하기 +
       </CreateButton>
 
       <CardGrid>
@@ -115,11 +115,11 @@ export default function Groups() {
         ))}
       </CardGrid>
 
-      <Title style={{ marginTop: '50px' }}>소모임 찾기 🔍</Title>
+      <Title style={{ marginTop: '50px' }}>프로젝트 찾기 🔍</Title>
       <SearchBar>
         <input
           type="text"
-          placeholder="관심있는 소모임을 검색해보세요"
+          placeholder="관심있는 프로젝트를 검색해보세요"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />

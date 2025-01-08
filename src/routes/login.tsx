@@ -90,7 +90,7 @@ export default function Login() {
   return (
     <Wrapper>
       <Title>Codering</Title>
-      <p>함께하는 즐거움을 찾아보세요!</p>
+      <p>함께 성장하는 개발자 커뮤니티</p>
       <LoginButton onClick={onClickLoginButton}>카카오로 시작하기</LoginButton>
     </Wrapper>
   );
