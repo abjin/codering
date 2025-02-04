@@ -10,6 +10,7 @@ import {
 } from '../components/common/layout';
 import { CreateButton } from '../components/common/buttons';
 import { ProjectDetailModal } from '../components/modals/projectDetailModal';
+import ProjectCreateModal from '../components/modals/projectCreateModal';
 import styled from 'styled-components';
 import { Tag, TagsWrapper } from '../components/common/tags';
 
@@ -18,13 +19,16 @@ const PageWrapper = styled.div`
 `;
 
 export default function Projects() {
+  const [showCreateModal, setShowCreateModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
     <PageWrapper>
       <Title>프로젝트 👨‍💻</Title>
-      <CreateButton>새 프로젝트 만들기 +</CreateButton>
+      <CreateButton onClick={() => setShowCreateModal(true)}>
+        새 프로젝트 만들기 +
+      </CreateButton>
 
       <SearchSection>
         <input
@@ -62,6 +66,9 @@ export default function Projects() {
           </ItemCard>
         ))}
       </Grid>
+      {showCreateModal && (
+        <ProjectCreateModal onClose={() => setShowCreateModal(false)} />
+      )}
 
       {selectedProject && (
         <ProjectDetailModal
