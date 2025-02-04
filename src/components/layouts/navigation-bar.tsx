@@ -162,7 +162,8 @@ export default function NavigationBar() {
         $isActive={currentPath === ROUTES.CHAT_ROOMS}
       >
         <svg viewBox="0 0 24 24">
-          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L6 11h16l-8 5z" />
+          <path d="M19 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 16H5V7.83l6.88 4.29c.19.12.43.12.62 0L19 7.83V18zm-6.97-4.57L5 6h14l-6.97 7.43z" />
+          <path d="M12 11.12 5 6h14l-7 5.12z" opacity="0.3" />
         </svg>
         채팅
       </NavItem>
