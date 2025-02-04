@@ -51,8 +51,8 @@ export default function Feeds() {
           onSubmit={handleSubmit}
         />
 
-        {mockFeeds.map((feed) => (
-          <FeedCard feed={feed} />
+        {mockFeeds.map((feed, key) => (
+          <FeedCard feed={feed} key={key} />
         ))}
       </FeedList>
     </PageWrapper>

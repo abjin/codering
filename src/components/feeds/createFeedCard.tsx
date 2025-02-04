@@ -101,7 +101,7 @@ export function CreateFeedCard({
           >
             X
           </ActionButton>
-          <ActionButton primary onClick={onSubmit}>
+          <ActionButton $primary={'true'} onClick={onSubmit}>
             ✔️
           </ActionButton>
         </Actions>

@@ -80,17 +80,18 @@ export const ImageUploadButton = styled.button`
   }
 `;
 
-export const ActionButton = styled.button<{ primary?: boolean }>`
+export const ActionButton = styled.button<{ $primary?: string }>`
   padding: 8px 16px;
   border: none;
   border-radius: 8px;
-  background: ${({ primary }) => (primary ? '#6c5ce7' : 'transparent')};
-  color: ${({ primary }) => (primary ? 'white' : '#adb5bd')};
+  background: ${({ $primary }) =>
+    $primary === 'true' ? '#6c5ce7' : 'transparent'};
+  color: ${({ $primary }) => ($primary === 'true' ? 'white' : '#adb5bd')};
   cursor: pointer;
   transition: all 0.2s;
 
   &:hover {
-    background: ${({ primary }) =>
-      primary ? '#5f3dc4' : 'rgba(255, 255, 255, 0.1)'};
+    background: ${({ $primary }) =>
+      $primary === 'true' ? '#5f3dc4' : 'rgba(255, 255, 255, 0.1)'};
   }
 `;
