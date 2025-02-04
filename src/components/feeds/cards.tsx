@@ -17,7 +17,6 @@ export const HolographicCard = styled.div`
   position: relative;
   overflow: hidden;
   &::before {
-    content: '';
     position: absolute;
     top: 0;
     left: 0;
