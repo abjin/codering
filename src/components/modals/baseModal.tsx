@@ -29,6 +29,14 @@ const ModalContent = styled.div`
   border-radius: 16px;
   width: 90%;
   max-width: 500px;
+
+  h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+  }
 `;
 
 export function BaseModal({ onClose, children, title }: BaseModalProps) {

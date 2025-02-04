@@ -21,19 +21,19 @@ const CreateFeedWrapper = styled(HolographicCard)`
   position: relative;
   width: 100%;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  padding: 1rem;
+  border-radius: 16px;
+  padding: 1.5rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 `;
 
 const TextArea = styled.textarea`
   width: 100%;
-  min-height: 60px;
+  min-height: 80px;
   background: rgba(255, 255, 255, 0.1);
   border: none;
   border-radius: 8px;
   color: #fff;
-  padding: 0.8rem;
+  padding: 1rem;
   resize: none;
   font-size: 1rem;
 

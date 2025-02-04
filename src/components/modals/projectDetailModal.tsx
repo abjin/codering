@@ -19,20 +19,43 @@ interface ProjectDetailModalProps {
 }
 
 const DetailContent = styled.div`
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  color: white;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .category {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #555;
+    }
+  }
+
   .info {
     margin: 20px 0;
 
     .item {
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin: 8px 0;
+      gap: 12px;
+      margin: 12px 0;
 
       svg {
-        width: 20px;
-        height: 20px;
+        width: 24px;
+        height: 24px;
+        color: #888;
       }
     }
+  }
+
+  p {
+    margin: 20px 0;
+    line-height: 1.6;
   }
 `;
 
