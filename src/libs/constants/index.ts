@@ -8,5 +8,7 @@ export const ROUTES = {
   LOGIN: '/login',
   LOGOUT: '/logout',
 
+  CHAT_ROOMS: '/chat-rooms',
+
   ALL: '/*',
 };

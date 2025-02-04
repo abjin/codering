@@ -9,6 +9,7 @@ import Feeds from './feeds';
 import Studies from './studies';
 import Conferences from './conferences';
 import { ROUTES } from '../libs/constants';
+import ChatRooms from './chatRooms';
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ export const router = createBrowserRouter([
       { path: ROUTES.FEEDS, element: <Feeds /> },
       { path: ROUTES.STUDIES, element: <Studies /> },
       { path: ROUTES.CONFERENCES, element: <Conferences /> },
+      { path: ROUTES.CHAT_ROOMS, element: <ChatRooms /> },
       { path: '/*', element: <Home /> },
     ],
   },
