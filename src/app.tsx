@@ -21,6 +21,7 @@ const GlobalStyles = createGlobalStyle`
 
 const Wrapper = styled.div`
   height: 100svh;
+  min-height: 500px;
   display: flex;
   justify-content: center;
 `;
