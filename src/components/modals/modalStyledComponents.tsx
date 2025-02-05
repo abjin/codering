@@ -6,6 +6,8 @@ export const ModalContent = styled.div`
   border-radius: 24px;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.05);
+  max-height: 80vh;
+  overflow-y: scroll;
 `;
 
 // Reusable Form Components
