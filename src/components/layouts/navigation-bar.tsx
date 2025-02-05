@@ -25,7 +25,7 @@ const Wrapper = styled.nav`
     bottom: 0;
     right: auto;
     width: var(--nav-width);
-    height: 100vh;
+    height: 100svh;
     flex-direction: column;
     justify-content: flex-start;
     padding-top: 24px;

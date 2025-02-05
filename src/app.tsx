@@ -20,7 +20,7 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 const Wrapper = styled.div`
-  height: 100vh;
+  height: 100svh;
   display: flex;
   justify-content: center;
 `;

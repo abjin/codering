@@ -9,7 +9,7 @@ const PageWrapper = styled.div`
   padding: 1.25rem;
   margin: 0 auto;
   background-color: #000;
-  min-height: 100vh;
+  min-height: 100svh;
   color: #fff;
 
   @media (min-width: 1280px) {

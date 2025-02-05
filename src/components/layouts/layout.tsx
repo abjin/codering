@@ -14,7 +14,7 @@ const Wrapper = styled.div`
     --nav-width: 240px;
   }
 
-  min-height: 100vh;
+  min-height: 100svh;
   width: 100%;
   position: relative;
 
