@@ -33,7 +33,7 @@ export default function Home() {
             <ProjectCard key={project.id}>
               <div className="header">
                 <span className="category">{project.category}</span>
-                <LevelBadge level={project.level}>{project.level}</LevelBadge>
+                <LevelBadge $level={project.level}>{project.level}</LevelBadge>
               </div>
               <h3>{project.title}</h3>
               <TagsWrapper>
@@ -42,7 +42,7 @@ export default function Home() {
                 ))}
               </TagsWrapper>
               <div className="description">{project.description}</div>
-              <JoinButton full={project.currentMembers >= project.maxMembers}>
+              <JoinButton $full={project.currentMembers >= project.maxMembers}>
                 {project.currentMembers >= project.maxMembers
                   ? '모집 완료'
                   : '참여하기'}
@@ -59,7 +59,7 @@ export default function Home() {
             <ProjectCard key={study.id}>
               <div className="header">
                 <span className="category">{study.category}</span>
-                <LevelBadge level={study.level}>{study.level}</LevelBadge>
+                <LevelBadge $level={study.level}>{study.level}</LevelBadge>
               </div>
               <h3>{study.title}</h3>
               <TagsWrapper>
@@ -68,7 +68,7 @@ export default function Home() {
                 ))}
               </TagsWrapper>
               <div className="description">{study.description}</div>
-              <JoinButton full={study.currentMembers >= study.maxMembers}>
+              <JoinButton $full={study.currentMembers >= study.maxMembers}>
                 {study.currentMembers >= study.maxMembers
                   ? '모집 완료'
                   : '참여하기'}

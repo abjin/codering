@@ -73,7 +73,7 @@ export function ProjectDetailModal({
         <DetailContent>
           <div className="header">
             <span className="category">{project.category}</span>
-            <LevelBadge level={project.level}>{project.level}</LevelBadge>
+            <LevelBadge $level={project.level}>{project.level}</LevelBadge>
           </div>
 
           <div className="info">
@@ -106,7 +106,7 @@ export function ProjectDetailModal({
           </TagsWrapper>
 
           <JoinButton
-            full={project.currentMembers === project.maxMembers}
+            $full={project.currentMembers === project.maxMembers}
             onClick={handleJoin}
           >
             {project.currentMembers === project.maxMembers

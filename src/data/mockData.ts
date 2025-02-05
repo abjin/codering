@@ -296,7 +296,8 @@ export const mockFeeds: Feed[] = [
       image: 'https://avatars.githubusercontent.com/u/709451',
     },
     content: '개발자를 위한 UI/UX 디자인 팁 공유합니다!',
-    image: 'https://miro.medium.com/max/1400/1*9QxOZpiI_RvC5VQb5zZyuA.png',
+    image:
+      'https://github.blog/wp-content/uploads/2020/12/102393310-07478b80-3f8d-11eb-84eb-392d555ebd29.png',
     time: '2024-03-15T16:45:00',
     likes: 35,
     comments: 7,

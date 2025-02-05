@@ -42,15 +42,14 @@ export default function Feeds() {
   return (
     <PageWrapper>
       <PageTitle>피드 ✨</PageTitle>
+      <CreateFeedCard
+        content={content}
+        isExpanded={isExpanded}
+        onContentChange={setContent}
+        onExpandChange={setIsExpanded}
+        onSubmit={handleSubmit}
+      />
       <FeedList>
-        <CreateFeedCard
-          content={content}
-          isExpanded={isExpanded}
-          onContentChange={setContent}
-          onExpandChange={setIsExpanded}
-          onSubmit={handleSubmit}
-        />
-
         {mockFeeds.map((feed, key) => (
           <FeedCard feed={feed} key={key} />
         ))}

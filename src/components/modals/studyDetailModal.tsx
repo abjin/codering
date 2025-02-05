@@ -60,7 +60,7 @@ export function StudyDetailModal({ study, onClose }: StudyDetailModalProps) {
       <DetailContent>
         <div className="header">
           <span className="category">{study.category}</span>
-          <LevelBadge level={study.level}>{study.level}</LevelBadge>
+          <LevelBadge $level={study.level}>{study.level}</LevelBadge>
         </div>
         <div className="info">
           <div className="item">
@@ -72,7 +72,7 @@ export function StudyDetailModal({ study, onClose }: StudyDetailModalProps) {
         </div>
         <p>{study.description}</p>
         <JoinButton
-          full={study.currentMembers === study.maxMembers}
+          $full={study.currentMembers === study.maxMembers}
           onClick={handleJoin}
         >
           {study.currentMembers === study.maxMembers ? '모집완료' : '참여하기'}

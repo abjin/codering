@@ -14,7 +14,7 @@ export const ItemCard = ({ item, onClick, children }: ItemCardProps) => {
     <BaseCard onClick={onClick}>
       <div className="header">
         <span className="category">{item.category}</span>
-        <LevelBadge level={item.level}>{item.level}</LevelBadge>
+        <LevelBadge $level={item.level}>{item.level}</LevelBadge>
       </div>
       <h3>{item.title}</h3>
       {children}
@@ -24,7 +24,7 @@ export const ItemCard = ({ item, onClick, children }: ItemCardProps) => {
           <Tag key={tag}>{tag}</Tag>
         ))}
       </TagsWrapper>
-      <JoinButton full={item.currentMembers === item.maxMembers}>
+      <JoinButton $full={item.currentMembers === item.maxMembers}>
         {item.currentMembers === item.maxMembers ? '모집완료' : '참여하기'}
       </JoinButton>
     </BaseCard>

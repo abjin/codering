@@ -39,25 +39,25 @@ export const CreateButton = styled.button`
   }
 `;
 
-export const JoinButton = styled.button<{ full: boolean }>`
+export const JoinButton = styled.button<{ $full: boolean }>`
   width: 100%;
   padding: 16px;
   border-radius: 16px;
   border: none;
-  background: ${({ full }) =>
+  background: ${({ $full: full }) =>
     full
       ? 'rgba(108, 92, 231, 0.3)'
       : 'linear-gradient(135deg, #6c5ce7, #a367fc)'};
   color: white;
   font-weight: 600;
   font-size: 15px;
-  cursor: ${({ full }) => (full ? 'not-allowed' : 'pointer')};
-  opacity: ${({ full }) => (full ? '0.7' : '1')};
+  cursor: ${({ $full: full }) => (full ? 'not-allowed' : 'pointer')};
+  opacity: ${({ $full: full }) => (full ? '0.7' : '1')};
   transition: all 0.3s ease;
 
   &:hover {
-    transform: ${({ full }) => (full ? 'none' : 'translateY(-2px)')};
-    box-shadow: ${({ full }) =>
+    transform: ${({ $full: full }) => (full ? 'none' : 'translateY(-2px)')};
+    box-shadow: ${({ $full: full }) =>
       full ? 'none' : '0 8px 20px rgba(108, 92, 231, 0.2)'};
   }
 

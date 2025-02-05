@@ -21,12 +21,12 @@ export const Tag = styled.span`
   font-weight: 500;
 `;
 
-export const LevelBadge = styled.span<{ level: string }>`
+export const LevelBadge = styled.span<{ $level: string }>`
   padding: 8px 16px;
   border-radius: 16px;
   font-size: 13px;
   font-weight: 600;
-  background: ${({ level }) => {
+  background: ${({ $level: level }) => {
     switch (level) {
       case '초급':
         return 'rgba(0, 184, 148, 0.1)';
@@ -38,7 +38,7 @@ export const LevelBadge = styled.span<{ level: string }>`
         return 'rgba(0, 184, 148, 0.1)';
     }
   }};
-  color: ${({ level }) => {
+  color: ${({ $level: level }) => {
     switch (level) {
       case '초급':
         return '#00b894';
