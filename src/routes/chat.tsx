@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import MessageItem from '../components/chat/messageItem';
+import { useKeyboardAvoidingView } from '../hooks/common/useKeyboardAvoidingView';
 
 const Wrapper = styled.div`
   display: flex;
@@ -126,6 +127,8 @@ const Chat = () => {
     setMessages((prev) => [...prev, newMessage]);
     setInputMessage('');
   };
+
+  useKeyboardAvoidingView();
 
   return (
     <Wrapper>

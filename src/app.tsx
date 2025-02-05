@@ -5,7 +5,6 @@ import { router } from './routes';
 import AuthProvider from 'react-auth-kit/AuthProvider';
 import { store } from './store';
 import { SocketProvider } from './socket';
-import { useKeyboardAvoidingView } from './hooks/common/useKeyboardAvoidingView';
 
 const GlobalStyles = createGlobalStyle`
   ${reset}
@@ -27,8 +26,6 @@ const Wrapper = styled.div`
 `;
 
 function App() {
-  useKeyboardAvoidingView();
-
   return (
     <Wrapper>
       <GlobalStyles />
