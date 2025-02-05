@@ -7,59 +7,84 @@ interface ProjectCreateModalProps {
 }
 
 const ModalContent = styled.div`
-  padding: 2rem;
-  background: #2c2c2c;
-  border-radius: 8px;
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 32px;
+  background: rgba(30, 30, 30, 0.6);
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 `;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 `;
 
 const Input = styled.input`
-  padding: 0.75rem 1rem;
-  background: #3c3c3c;
-  border: 1px solid #555;
-  border-radius: 6px;
-  font-size: 1rem;
-  color: #fff;
-  transition: border-color 0.2s ease;
+  padding: 14px 20px;
+  background: rgba(25, 25, 25, 0.8);
+  border: 1px solid rgba(108, 92, 231, 0.2);
+  border-radius: 12px;
+  font-size: 14px;
+  color: #f8f9fa;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  &:hover {
+    border-color: rgba(108, 92, 231, 0.4);
+  }
+
   &:focus {
-    border-color: #2979ff;
+    border-color: #6c5ce7;
+    background: rgba(25, 25, 25, 1);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
     outline: none;
   }
 `;
 
 const Select = styled.select`
-  padding: 0.75rem 1rem;
-  background: #3c3c3c;
-  border: 1px solid #555;
-  border-radius: 6px;
-  font-size: 1rem;
-  color: #fff;
-  transition: border-color 0.2s ease;
-  &:focus {
-    border-color: #2979ff;
-    outline: none;
+  ${Input.componentStyle.rules}
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23958cff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+  padding-right: 2.5rem;
+  cursor: pointer;
+
+  option {
+    background: #1a1a1a;
+    color: #f8f9fa;
+    padding: 12px;
   }
 `;
 
 const TextArea = styled.textarea`
-  padding: 0.75rem 1rem;
-  background: #3c3c3c;
-  border: 1px solid #555;
-  border-radius: 6px;
-  font-size: 1rem;
+  ${Input.componentStyle.rules}
+  min-height: 120px;
+  padding: 14px 20px;
+  line-height: 1.5;
   resize: vertical;
-  color: #fff;
-  transition: border-color 0.2s ease;
+  font-family: inherit;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(108, 92, 231, 0.4) transparent;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(108, 92, 231, 0.4);
+    border-radius: 3px;
+  }
+
   &:focus {
-    border-color: #2979ff;
-    outline: none;
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+    background: rgba(25, 25, 25, 1);
   }
 `;
 
@@ -67,42 +92,47 @@ const ButtonGroup = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 `;
 
 const Button = styled.button`
-  padding: 0.75rem 1.5rem;
-  background-color: #2979ff;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #6c5ce7, #a367fc);
   border: none;
   color: white;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+
   &:hover {
-    background-color: #1565c0;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(108, 92, 231, 0.3);
   }
 `;
 
 const CancelButton = styled(Button)`
-  background-color: #e53935;
+  background: rgba(255, 255, 255, 0.1);
+  color: #a8b2c1;
+
   &:hover {
-    background-color: #c62828;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+    transform: none;
   }
 `;
 
 const SelectButtonWrapper = styled.div`
   display: flex;
+  gap: 0.75rem;
   flex-wrap: wrap;
 `;
 
 const Label = styled.label`
-  font-size: 1rem;
+  font-size: 14px;
   font-weight: 600;
-  color: #e0e0e0;
+  color: #a8b2c1;
+  margin-bottom: 0.75rem;
   display: block;
-  margin-bottom: 0.5rem;
 `;
 
 const ProjectCreateModal: React.FC<ProjectCreateModalProps> = ({ onClose }) => {
@@ -155,9 +185,17 @@ const ProjectCreateModal: React.FC<ProjectCreateModalProps> = ({ onClose }) => {
                   type="button"
                   key={pos}
                   style={{
-                    backgroundColor: positions.includes(pos)
-                      ? '#2979ff'
-                      : '#3c3c3c',
+                    background: positions.includes(pos)
+                      ? 'linear-gradient(135deg, #6c5ce7, #a367fc)'
+                      : 'rgba(255, 255, 255, 0.05)',
+                    border: positions.includes(pos)
+                      ? 'none'
+                      : '1px solid rgba(108, 92, 231, 0.2)',
+                    color: positions.includes(pos) ? 'white' : '#a8b2c1',
+                    transition: 'all 0.3s ease',
+                    fontSize: '13px',
+                    padding: '8px 16px',
+                    borderRadius: '8px',
                   }}
                   onClick={() => {
                     if (positions.includes(pos)) {
@@ -182,9 +220,17 @@ const ProjectCreateModal: React.FC<ProjectCreateModalProps> = ({ onClose }) => {
                   type="button"
                   key={tech}
                   style={{
-                    backgroundColor: techStack.includes(tech)
-                      ? '#2979ff'
-                      : '#3c3c3c',
+                    background: techStack.includes(tech)
+                      ? 'linear-gradient(135deg, #6c5ce7, #a367fc)'
+                      : 'rgba(255, 255, 255, 0.05)',
+                    border: techStack.includes(tech)
+                      ? 'none'
+                      : '1px solid rgba(108, 92, 231, 0.2)',
+                    color: techStack.includes(tech) ? 'white' : '#a8b2c1',
+                    transition: 'all 0.3s ease',
+                    fontSize: '13px',
+                    padding: '8px 16px',
+                    borderRadius: '8px',
                   }}
                   onClick={() => {
                     if (techStack.includes(tech)) {
