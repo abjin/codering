@@ -10,6 +10,7 @@ import {
 } from '../components/common/layout';
 import { CreateButton } from '../components/common/buttons';
 import { StudyDetailModal } from '../components/modals/studyDetailModal';
+import StudyCreateModal from '../components/modals/studyCreateModal';
 import styled from 'styled-components';
 
 const PageWrapper = styled.div`
@@ -17,13 +18,16 @@ const PageWrapper = styled.div`
 `;
 
 export default function Studies() {
+  const [showCreateModal, setShowCreateModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedStudy, setSelectedStudy] = useState<Study | null>(null);
 
   return (
     <PageWrapper>
       <Title>스터디 📚</Title>
-      <CreateButton>새 스터디 만들기 +</CreateButton>
+      <CreateButton onClick={() => setShowCreateModal(true)}>
+        새 스터디 만들기 +
+      </CreateButton>
 
       <SearchSection>
         <input
@@ -46,6 +50,10 @@ export default function Studies() {
           </ItemCard>
         ))}
       </Grid>
+
+      {showCreateModal && (
+        <StudyCreateModal onClose={() => setShowCreateModal(false)} />
+      )}
 
       {selectedStudy && (
         <StudyDetailModal
