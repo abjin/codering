@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useState, useRef, useEffect } from 'react';
+import MessageItem from '../components/chat/messageItem';
 
 const Wrapper = styled.div`
   display: flex;
@@ -33,33 +34,6 @@ const MessageContainer = styled.div`
   padding: 20px;
 `;
 
-const MessageItem = styled.div<{ isMine: boolean }>`
-  display: flex;
-  flex-direction: column;
-  align-items: ${(props) => (props.isMine ? 'flex-end' : 'flex-start')};
-  max-width: 70%;
-  align-self: ${(props) => (props.isMine ? 'flex-end' : 'flex-start')};
-`;
-
-const MessageContent = styled.div<{ isMine: boolean }>`
-  background-color: ${(props) => (props.isMine ? '#4a9eff' : '#2c2c2c')};
-  padding: 10px 15px;
-  border-radius: 15px;
-  color: #ffffff;
-`;
-
-const MessageInfo = styled.div`
-  display: flex;
-  gap: 8px;
-  margin-top: 4px;
-  font-size: 12px;
-  color: #888888;
-`;
-
-const UnreadCount = styled.span`
-  color: #4a9eff;
-`;
-
 const InputWrapper = styled.div`
   padding: 20px;
   background-color: #1e1e1e;
@@ -85,6 +59,10 @@ interface Message {
   senderId: number;
   timestamp: string;
   unreadCount: number;
+  user: {
+    nickname: string;
+    profileImage: string;
+  };
 }
 
 const Chat = () => {
@@ -102,10 +80,16 @@ const Chat = () => {
     // API 호출을 시뮬레이션
     const mockMessages = Array.from({ length: 20 }, (_, i) => ({
       id: pageNum * 20 + i,
-      content: `메시지 ${pageNum * 20 + i}`,
+      content: `메시지 ${pageNum * 20 + i} 메시지 ${pageNum * 20 + i}`,
       senderId: Math.random() > 0.5 ? currentUserId : 2,
       timestamp: new Date().toLocaleTimeString(),
       unreadCount: Math.floor(Math.random() * 3),
+      user: {
+        nickname: `User${Math.floor(Math.random() * 10) + 1}`,
+        profileImage: `https://via.placeholder.com/40?text=${
+          Math.floor(Math.random() * 10) + 1
+        }`,
+      },
     }));
 
     setTimeout(() => {
@@ -125,6 +109,7 @@ const Chat = () => {
     }
   }, [messages]);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleScroll = () => {
     if (messageListRef.current && !loading) {
       const { scrollTop } = messageListRef.current;
@@ -144,6 +129,12 @@ const Chat = () => {
       senderId: currentUserId,
       timestamp: new Date().toLocaleTimeString(),
       unreadCount: 3,
+      user: {
+        nickname: `User${Math.floor(Math.random() * 10) + 1}`,
+        profileImage: `https://via.placeholder.com/40?text=${
+          Math.floor(Math.random() * 10) + 1
+        }`,
+      },
     };
 
     setMessages((prev) => [...prev, newMessage]);
@@ -160,20 +151,7 @@ const Chat = () => {
 
       <MessageContainer className="message-container">
         {messages.map((message) => (
-          <MessageItem
-            key={message.id}
-            isMine={message.senderId === currentUserId}
-          >
-            <MessageContent isMine={message.senderId === currentUserId}>
-              {message.content}
-            </MessageContent>
-            <MessageInfo>
-              <span>{message.timestamp}</span>
-              {message.unreadCount > 0 && (
-                <UnreadCount>{message.unreadCount}</UnreadCount>
-              )}
-            </MessageInfo>
-          </MessageItem>
+          <MessageItem key={message.id} message={message} />
         ))}
       </MessageContainer>
 
