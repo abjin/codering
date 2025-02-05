@@ -5,6 +5,7 @@ import { router } from './routes';
 import AuthProvider from 'react-auth-kit/AuthProvider';
 import { store } from './store';
 import { SocketProvider } from './socket';
+import { InstallPWA } from './components/InstallPWA';
 
 const GlobalStyles = createGlobalStyle`
   ${reset}
@@ -29,6 +30,7 @@ function App() {
   return (
     <Wrapper>
       <GlobalStyles />
+      <InstallPWA />
       <SocketProvider>
         <AuthProvider store={store}>
           <RouterProvider router={router} />
