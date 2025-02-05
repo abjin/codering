@@ -1,4 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
+import { ROUTES } from '../libs/constants';
 import Layout from '../components/layouts/layout';
 import Home from './home';
 import Login from './login';
@@ -8,8 +9,8 @@ import Projects from './projects';
 import Feeds from './feeds';
 import Studies from './studies';
 import Conferences from './conferences';
-import { ROUTES } from '../libs/constants';
 import ChatRooms from './chatRooms';
+import Chat from './chat';
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ export const router = createBrowserRouter([
       { path: ROUTES.STUDIES, element: <Studies /> },
       { path: ROUTES.CONFERENCES, element: <Conferences /> },
       { path: ROUTES.CHAT_ROOMS, element: <ChatRooms /> },
+      { path: ROUTES.CHAT, element: <Chat /> },
       { path: '/*', element: <Home /> },
     ],
   },

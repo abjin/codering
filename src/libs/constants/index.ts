@@ -9,6 +9,6 @@ export const ROUTES = {
   LOGOUT: '/logout',
 
   CHAT_ROOMS: '/chat-rooms',
-
+  CHAT: '/chat',
   ALL: '/*',
 };
