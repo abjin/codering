@@ -23,9 +23,13 @@ export const router = createBrowserRouter([
       { path: ROUTES.STUDIES, element: <Studies /> },
       { path: ROUTES.CONFERENCES, element: <Conferences /> },
       { path: ROUTES.CHAT_ROOMS, element: <ChatRooms /> },
-      { path: ROUTES.CHAT, element: <Chat /> },
       { path: '/*', element: <Home /> },
     ],
+  },
+
+  {
+    path: ROUTES.CHAT,
+    element: <ProtectedRoute children={<Chat />} />,
   },
   {
     path: ROUTES.LOGIN,
