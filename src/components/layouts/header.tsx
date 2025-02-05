@@ -5,7 +5,7 @@ const HeaderWrapper = styled.header`
   top: 0;
   left: 0;
   right: 0;
-  height: 60px;
+  height: var(--header-height);
   z-index: 100;
   padding: 0 20px;
   display: flex;
@@ -15,7 +15,7 @@ const HeaderWrapper = styled.header`
   opacity: 0.9;
 
   @media (min-width: 768px) {
-    left: 240px; // NavigationBar의 width만큼 left 값 설정
+    left: var(--nav-width);
   }
 `;
 

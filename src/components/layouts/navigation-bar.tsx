@@ -15,7 +15,7 @@ const Wrapper = styled.nav`
   bottom: 0;
   left: 0;
   right: 0;
-  height: 70px;
+  height: var(--nav-height);
   justify-content: space-around;
 
   // PC 디자인
@@ -24,7 +24,7 @@ const Wrapper = styled.nav`
     left: 0;
     bottom: 0;
     right: auto;
-    width: 240px;
+    width: var(--nav-width);
     height: 100vh;
     flex-direction: column;
     justify-content: flex-start;
