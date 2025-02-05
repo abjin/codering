@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import MessageItem from '../components/chat/messageItem';
 
 const Wrapper = styled.div`
@@ -68,15 +68,11 @@ interface Message {
 const Chat = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState('');
-  const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false);
-  const messageListRef = useRef<HTMLDivElement>(null);
 
   const currentUserId = 1; // 현재 사용자 ID (실제로는 인증 시스템에서 가져와야 함)
 
   // Mock 데이터 로드
-  const loadMessages = async (pageNum: number) => {
-    setLoading(true);
+  const loadMessages = async (pageNum = 1) => {
     // API 호출을 시뮬레이션
     const mockMessages = Array.from({ length: 20 }, (_, i) => ({
       id: pageNum * 20 + i,
@@ -94,13 +90,12 @@ const Chat = () => {
 
     setTimeout(() => {
       setMessages((prev) => [...prev, ...mockMessages]);
-      setLoading(false);
     }, 500);
   };
 
   useEffect(() => {
-    loadMessages(page);
-  }, [page]);
+    loadMessages();
+  }, []);
 
   useEffect(() => {
     const messageContainer = document.querySelector('.message-container');
@@ -108,16 +103,6 @@ const Chat = () => {
       messageContainer.scrollTop = messageContainer.scrollHeight;
     }
   }, [messages]);
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const handleScroll = () => {
-    if (messageListRef.current && !loading) {
-      const { scrollTop } = messageListRef.current;
-      if (scrollTop === 0) {
-        setPage((prev) => prev + 1);
-      }
-    }
-  };
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
