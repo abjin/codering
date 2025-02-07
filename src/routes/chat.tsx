@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import MessageItem from '../components/chat/messageItem';
 import { useKeyboardAvoidingView } from '../hooks/common/useKeyboardAvoidingView';
+import { useParams } from 'react-router-dom';
 
 const Wrapper = styled.div`
   display: flex;
@@ -70,6 +71,9 @@ interface Message {
 const Chat = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState('');
+
+  const { id } = useParams();
+  console.log('id: ', id);
 
   const currentUserId = 1; // 현재 사용자 ID (실제로는 인증 시스템에서 가져와야 함)
 
