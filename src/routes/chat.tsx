@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import MessageItem from '../components/chat/messageItem';
 import { useKeyboardAvoidingView } from '../hooks/common/useKeyboardAvoidingView';
 import { useParams } from 'react-router-dom';
@@ -71,6 +71,7 @@ interface Message {
 const Chat = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState('');
+  const messageContainerRef = useRef<HTMLDivElement>(null);
 
   const { id } = useParams();
   console.log('id: ', id);
@@ -104,9 +105,9 @@ const Chat = () => {
   }, []);
 
   useEffect(() => {
-    const messageContainer = document.querySelector('.message-container');
-    if (messageContainer) {
-      messageContainer.scrollTop = messageContainer.scrollHeight;
+    if (messageContainerRef.current) {
+      messageContainerRef.current.scrollTop =
+        messageContainerRef.current.scrollHeight;
     }
   }, [messages]);
 
@@ -142,7 +143,7 @@ const Chat = () => {
         </ChatTitle>
       </Header>
 
-      <MessageContainer className="message-container">
+      <MessageContainer ref={messageContainerRef} className="message-container">
         {messages.map((message) => (
           <MessageItem key={message.id} message={message} />
         ))}
